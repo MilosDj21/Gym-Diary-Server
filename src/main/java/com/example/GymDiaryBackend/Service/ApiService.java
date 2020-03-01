@@ -49,15 +49,12 @@ public class ApiService {
         return exerciseRepository.findByUserIdAndName(userId, name);
     }
     public Exercise insertOneExercise(Integer userId, Exercise exercise){
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yy");
-        Date date = new Date();
-        exercise.setDate(df.format(date));
         exercise.setUserId(userId);
         return exerciseRepository.save(exercise);
     }
     public Exercise updateOneExercise(Integer userId, Exercise exercise){
-        Optional<Exercise> exercise1 = exerciseRepository.findById(exercise.getId());
-        exercise1.ifPresent(exercise3 -> exercise.setDate(exercise3.getDate()));
+//        Optional<Exercise> exercise1 = exerciseRepository.findById(exercise.getId());
+//        exercise1.ifPresent(exercise3 -> exercise.setDate(exercise3.getDate()));
         exercise.setUserId(userId);
         return exerciseRepository.save(exercise);
     }
